@@ -11,7 +11,7 @@ from utils import allowed_file
 app = Flask(__name__)
 app.config.from_object(Config)
 
-@app.route('/api/extract', methods=['POST'])
+@app.route('/api/v1/ocr/cni', methods=['POST'])
 def extract_info():
     if 'image' not in request.files:
         return jsonify({'error': 'Aucun fichier trouvé dans la requête', 'status': 400}), 400

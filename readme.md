@@ -20,7 +20,7 @@ http://<your-server-ip>:5000/api
 
 #### 1. **Extract Information from Identity Card**
 
-- **URL:** `/extract`
+- **URL:** `/v1/ocr/cni`
 - **Method:** `POST`
 - **Content-Type:** `multipart/form-data`
 
@@ -31,7 +31,7 @@ The request must include a file with the key `image`. The file should be an imag
 **Example:**
 
 ```bash
-curl -X POST http://<your-server-ip>:5000/api/extract \
+curl -X POST http://<your-server-ip>:5000/api/v1/ocr/cni \
 -F 'image=@path/to/image.jpg'
 ```
 
@@ -128,5 +128,3 @@ pip install Flask opencv-python pytesseract werkzeug numpy Pillow
 **SenegalID-OCR** provides an efficient way to extract vital information from Senegalese national identity cards, making it easier to automate processes that require identity verification. With a simple API interface, it can be integrated into various applications to enhance functionality.
 
 ---
-
-Feel free to adjust any section to better fit your needs or preferences!
