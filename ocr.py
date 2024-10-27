@@ -24,7 +24,7 @@ class CarteIdentiteSenegalaiseOCR:
         for i in range(len(cleaned_lines)):
             line = cleaned_lines[i]
 
-            if "N° de la carte d'identité" in line:
+            if "a carte d'identité" in line:
                 if i + 1 < len(cleaned_lines):
                     num_match = re.search(r"(\d{2} \d{8} \d{5} \d)", cleaned_lines[i + 1])
                     if num_match:
@@ -33,6 +33,9 @@ class CarteIdentiteSenegalaiseOCR:
 
             elif "Prénoms" in line:
                 if i + 1 < len(cleaned_lines):
+                    self.result.prenom = cleaned_lines[i + 1]
+            elif "Prenoms" in line:
+              if i + 1 < len(cleaned_lines):
                     self.result.prenom = cleaned_lines[i + 1]
 
 
@@ -49,14 +52,14 @@ class CarteIdentiteSenegalaiseOCR:
                         self.result.sexe = date_sexe[1]
 
 
-            elif "Lieu de naissänce" in line:
+            elif "Lieu de nais" in line:
                 if i + 1 < len(cleaned_lines):
                     self.result.lieu_naissance = cleaned_lines[i + 1]
 
 
-            elif "Lieu de naissance" in line:
-                if i + 1 < len(cleaned_lines):
-                    self.result.lieu_naissance = cleaned_lines[i + 1]
+            # elif "Lieu de naissance" in line:
+            #     if i + 1 < len(cleaned_lines):
+            #         self.result.lieu_naissance = cleaned_lines[i + 1]
 
 
             elif "Date de délivrance" in line:
